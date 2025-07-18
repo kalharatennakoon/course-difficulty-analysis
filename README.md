@@ -1,5 +1,7 @@
 # Course Difficulty Analysis: Validity, Reliability, and Normality Study
 
+> **📚 Educational Purpose Disclaimer**: This project is created for educational and learning purposes only. It serves as a demonstration of statistical analysis techniques, machine learning methodologies, and data science best practices. The analysis and findings are intended for academic study and skill development.
+
 This repository contains a comprehensive statistical analysis of course difficulty prediction with a focus on validity, reliability, and normality assessment of the data.
 
 ## 📊 Overview
