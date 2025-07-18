@@ -58,24 +58,15 @@ jobs:
         python -c "
         import nbformat
         from nbconvert.preprocessors import ExecutePreprocessor
-        import pandas as pd
         
-        # Load notebook
         with open('course_difficulty_analysis.ipynb', 'r') as f:
             nb = nbformat.read(f, as_version=4)
         
-        # Execute first 5 cells only for CI testing
-        ep = ExecutePreprocessor(timeout=600, kernel_name='python3')
+        # Optionally run only first 5 cells
+        nb.cells = nb.cells[:5]
         
-        # Execute limited cells for testing
-        for i, cell in enumerate(nb.cells[:5]):
-            if cell.cell_type == 'code':
-                try:
-                    ep.preprocess_cell(cell, {}, i)
-                    print(f'Cell {i} executed successfully')
-                except Exception as e:
-                    print(f'Cell {i} failed: {e}')
-                    raise
+        ep = ExecutePreprocessor(timeout=600, kernel_name='python3')
+        ep.preprocess(nb, {})  # This executes the notebook contextually
         
         print('Basic notebook functionality test passed!')
         "
